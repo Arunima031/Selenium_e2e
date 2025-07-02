@@ -23,4 +23,9 @@
                     </class>
                 </classes>
             </test>
+    <test  verbose="2" preserve-order="true"  name="Calendar Validation Test">
+        <classes>
+            <class name="org.practice.tests.CalendarValidationTest"></class>
+        </classes>
+    </test>
 </suite>
