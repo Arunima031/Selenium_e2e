@@ -4,8 +4,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.practice.pageObjects.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -39,12 +42,24 @@ public class BaseTest {
             prop.load(fis);
             String browserName=
                     System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser");
-            if(browserName.equalsIgnoreCase("chrome")){
-                driver = new ChromeDriver();
-            } else if (browserName.equalsIgnoreCase("firefox")) {
-                driver=new FirefoxDriver();
-            } else if (browserName.equalsIgnoreCase("edge")) {
-                driver=new EdgeDriver();
+            if(browserName.contains("chrome")){
+                ChromeOptions options = new ChromeOptions();
+                if(browserName.contains("headless")) {
+                    options.addArguments("headless");
+                }
+                driver = new ChromeDriver(options);
+            } else if (browserName.contains("firefox")) {
+                FirefoxOptions options=new FirefoxOptions();
+                if(browserName.contains("headless")) {
+                    options.addArguments("headless");
+                }
+                driver=new FirefoxDriver(options);
+            } else if (browserName.contains("edge")) {
+                EdgeOptions options=new EdgeOptions();
+                if(browserName.contains("headless")) {
+                    options.addArguments("headless");
+                }
+                driver=new EdgeDriver(options);
             }
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
