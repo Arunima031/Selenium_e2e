@@ -14,10 +14,10 @@
         </class>
         </classes>
        </test>
-            <test verbose="2" preserve-order="true"  name="Submit Order Test">
+            <test verbose="2" preserve-order="true"  name="Regression Test">
                 <classes>
-                    <class name="org.practice.tests.SubmitOrderTest">
-                    </class>
+<!--                    <class name="org.practice.tests.SubmitOrderTest"></class>-->
+                    <class name="org.practice.tests.CalendarValidationTest"/>
                 </classes>
             </test>
 </suite>
