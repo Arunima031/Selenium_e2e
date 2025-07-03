@@ -20,7 +20,6 @@ ExtentReports extent =ExtentReporter.generateReport();
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("Test reached listener for failure");
         test.log(Status.FAIL,"Test Failed");
         test.fail(result.getThrowable());
 

@@ -36,9 +36,24 @@ public AbstractComponents(WebDriver driver){
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public void visibilityOfWebElement(WebElement element){
+    public void invisibilityOfElements(By locator){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+    public void visibilityOfElements(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public  void waitForElementToBeClickable(By locator){
+       WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+       wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void waitForElementToBeClickable(WebElement element){
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void goToCartPage(){

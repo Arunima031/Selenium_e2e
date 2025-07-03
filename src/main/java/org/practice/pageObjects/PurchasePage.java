@@ -30,7 +30,7 @@ public class PurchasePage extends AbstractComponents {
     By countryOptions= By.cssSelector(".ta-results");
 
     public void selectCountry(){
-        visibilityOfWebElement(submitButton);
+        visibilityOfElements(submitButton);
         Actions a = new Actions(driver);
         System.out.println(countryBox.isDisplayed()); // Should print true
         System.out.println(countryBox.isEnabled());   // Should print true

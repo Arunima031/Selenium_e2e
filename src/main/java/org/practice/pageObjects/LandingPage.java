@@ -39,7 +39,7 @@ public class LandingPage extends AbstractComponents {
     }
 
     public String errorValidation(){
-        visibilityOfWebElement(errorMessage);
+        visibilityOfElements(errorMessage);
         return errorMessage.getText();
     }
 
